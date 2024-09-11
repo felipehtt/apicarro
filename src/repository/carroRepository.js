@@ -1,10 +1,10 @@
 import con from './connection.js'
 
-export async function inserirCarro(carro){
+export async function inserirCarro(carro) {
 
     const comando = ` 
     
-    insert into tb_carros (ds_marca, ds_modelo, nr_ano, vl_preco, dt_inclusao) 
+    insert into tb_carro (ds_marca, ds_modelo, nr_ano, vl_preco, dt_inclusao) 
         values (?, ?, ?, ?, ?)
     
     `
@@ -20,7 +20,7 @@ export async function inserirCarro(carro){
 }
 
 
-export async function consultarCarro(){
+export async function consultarCarro() {
 
     const comando = `
     
@@ -31,7 +31,7 @@ export async function consultarCarro(){
                vl_preco     preco,
                img_Carro    imagemCarro,
                dt_inclusao  inclusao
-            from tb_carros;
+            from tb_carro;
 
     `
 
@@ -44,11 +44,11 @@ export async function consultarCarro(){
 }
 
 
-export async function alterarCarro(id, carro){
+export async function alterarCarro(id, carro) {
 
     const comando = `
     
-    update tb_carros
+    update tb_carro
         set ds_marca = ?,
             ds_modelo = ?,
             nr_ano = ?,
@@ -69,11 +69,11 @@ export async function alterarCarro(id, carro){
 }
 
 
-export async function removerCarro(id){
+export async function removerCarro(id) {
 
     const comando = ` 
     
-    delete from tb_carros
+    delete from tb_carro
         where id_carro = ?
     
     `
@@ -86,11 +86,11 @@ export async function removerCarro(id){
 
     return linhasAfetadas;
 
-} 
+}
 
 
 //Imagem do Carro
-export async function inserirImagemCarro(id, caminho){
+export async function inserirImagemCarro(id, caminho) {
 
     const comando = `
     UPDATE tb_carro

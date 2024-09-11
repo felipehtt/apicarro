@@ -9,17 +9,17 @@ const con = await mysql.createConnection({
     database: process.env.MYSQL_DB,
     typeCast: function (field, next) {
 
-        if(field.type === 'TINY' && field.length === 1) {
-            
-            return(field.string() === '1');
+        if (field.type === 'TINY' && field.length === 1) {
+
+            return (field.string() === '1');
 
         }
-        else if(field.type.includes('DECIMAL')) {
+        else if (field.type.includes('DECIMAL')) {
 
             return Number(field.string());
 
         }
-        else{
+        else {
             return next();
         }
 

@@ -1,6 +1,6 @@
 import carroController from './controller/carroController.js';
 
-export default function adicionarRotas(servidor){
+export default function adicionarRotas(servidor) {
 
     servidor.use(carroController);
 
